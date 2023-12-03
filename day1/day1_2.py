@@ -1,5 +1,3 @@
-import re
-
 # NAME = "sample.in"
 NAME = "input.txt"
 
@@ -32,16 +30,23 @@ def solve(f):
         line = f.readline()
         if len(line) == 0:
             break
-        rstr = ""
+        first_pos = len(line)
+        last_pos = -1
+        first_str = None
+        last_str = None
         for k in DIGITS:
-            if len(rstr) > 0:
-                rstr = rstr + "|"
-            rstr = rstr + k
-        digits = re.findall(rstr, line)
-        first = DIGITS[digits[0]]
-        last = DIGITS[digits[-1]]
+            fpos = line.find(k)
+            if fpos != -1:
+                if first_pos > fpos:
+                    first_pos = fpos
+                    first_str = k
+                lpos = line.rfind(k) + len(k)
+                if last_pos < lpos:
+                    last_pos = lpos
+                    last_str = k
+        first = DIGITS[first_str]
+        last = DIGITS[last_str]
         num = int(10 * first + last)
-        print(num)
         num_sum = num_sum + num
     return num_sum
 
