@@ -8,7 +8,7 @@ def solve(f):
     answer = 0
     buf = []
     while True:
-        line = f.readline()
+        line = f.readline().strip()
         if len(line) == 0:
             break
         buf.append(line)
