@@ -1,7 +1,7 @@
-# NAME = "sample.in"
-NAME = "input.txt"
+NAME = "sample.in"
+# NAME = "input.txt"
 
-STEPS = 262
+STEPS = 5
 # STEPS = 26501365
 
 START = 'S'

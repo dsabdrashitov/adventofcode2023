@@ -5,7 +5,7 @@ _logger = logging.getLogger(__name__)
 # NAME = "sample.in"
 NAME = "input.txt"
 
-# STEPS = 1000
+# STEPS = 7
 STEPS = 26501365
 
 START = 'S'
@@ -24,6 +24,7 @@ def inside(cur, n, m):
     for p in cur:
         if p[0] < n - 1 and p[1] < m - 1:
             result = result + 1
+        # result = result + 1
     return result
 
 
@@ -64,21 +65,24 @@ def count(fence, steps):
     full = [0] * 2
     full[(len(precalc) - 1) % 2] = precalc[-1]
     full[(len(precalc) - 2) % 2] = precalc[-2]
+    _logger.debug(f"full={full}")
     answer = 0
     n = len(fence)
     m = len(fence[0])
     for i in range((steps // n) + 1):
         j = (steps - i * n) // m
         while j >= 0:
-            _logger.debug(i, j)
             remsteps = steps - i * n - j * m
+            _logger.debug(f"{i}, {j}: remsteps = {remsteps}")
             if remsteps >= len(precalc):
-                answer = answer + ((j + 1 + 1) // 2) * full[0]
-                answer = answer + ((j + 1) // 2) * full[1]
+                answer = answer + ((j + 1 + 1) // 2) * full[remsteps % 2]
+                answer = answer + ((j + 1) // 2) * full[(remsteps + 1) % 2]
+                _logger.debug(f"skipped to {answer}")
                 break
             answer = answer + precalc[remsteps]
+            _logger.debug(f"increase to {answer}")
             j = j - 1
-    _logger.debug(answer)
+    _logger.debug(f"answer = {answer}")
     return answer
 
 
@@ -144,4 +148,6 @@ def main():
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    # logging.basicConfig(level=logging.DEBUG)
     main()
