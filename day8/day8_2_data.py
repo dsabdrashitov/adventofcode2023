@@ -20,7 +20,9 @@ def go_precycle(node, done, g, p, finish):
 def remove_precycle(g, p, start, finish):
     started = set()
     for node in start:
-        started.add(go_precycle(node, 0, g, p, finish))
+        nxt = go_precycle(node, 0, g, p, finish)
+        _logger.info(f"{node} -> {nxt}")
+        started.add(nxt)
     return started
 
 
@@ -49,30 +51,32 @@ def find_next(node, done, min_dist, g, p, finish, graph_cache):
     return gc[right]
 
 
+def gcd(a, b):
+    while a > 0:
+        tmp = b % a
+        b = a
+        a = tmp
+    return b
+
+
+def lcm(a):
+    result = a[0]
+    for x in a:
+        result = result * x // gcd(result, x)
+    return result
+
+
 def find_path(g, p, start: set, finish: set):
     graph_cache = {}
     current: set = remove_precycle(g, p, start, finish)
-    counter = 0
-    while True:
-        counter = counter + 1
-        max_done = None
-        for node, done in current:
-            if max_done is None or max_done <= done:
-                max_done = done
-        if counter % 10000 == 0:
-            logging.info(f"counter = {counter}, max_done = {max_done}")
-            logging.debug(f"{current}")
-            logging.debug(f"{[(nd, len(graph_cache[nd])) for nd in graph_cache]}")
-        to_update = []
-        for node, done in current:
-            if done < max_done:
-                to_update.append((node, done))
-        if len(to_update) == 0:
-            return max_done
-        for node, done in to_update:
-            current.remove((node, done))
-            nxt, dist = find_next(node, done, max_done - done, g, p, finish, graph_cache)
-            current.add((nxt, done + dist))
+    values = []
+    for node, done in current:
+        nxt, dist = find_next(node, done, 1, g, p, finish, graph_cache)
+        assert nxt == node
+        assert done == dist
+        _logger.info(f"({node}, {done}) = {dist}")
+        values.append(dist)
+    return lcm(values)
 
 
 def solve(f):
