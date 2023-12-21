@@ -24,23 +24,36 @@ def remove_precycle(g, p, start, finish):
     return started
 
 
-def find_next(node, done, g, p, finish, graph_cache):
-    if (node, done % len(p)) in graph_cache:
-        return graph_cache[(node, done % len(p))]
+def find_next(node, done, min_dist, g, p, finish, graph_cache):
+    mdp = 1
+    while 2 * mdp <= min_dist:
+        mdp = 2 * mdp
+    if (node, done % len(p), mdp) in graph_cache:
+        return graph_cache[(node, done % len(p), mdp)]
     node0 = node
-    node = g[node][p[done % len(p)]]
-    dist = 1
-    while node not in finish:
+    dist = 0
+    prev_node = None
+    prev_dist = None
+    while True:
         node = g[node][p[(done + dist) % len(p)]]
         dist = dist + 1
-    graph_cache[(node0, done % len(p))] = node, dist
-    return node, dist
+        if node in finish:
+            if prev_node is None:
+                prev_node = node
+                prev_dist = dist
+            if dist > mdp:
+                break
+            prev_node = node
+            prev_dist = dist
+    graph_cache[(node0, done % len(p), mdp)] = prev_node, prev_dist
+    return prev_node, prev_dist
 
 
 def find_path(g, p, start: set, finish: set):
     graph_cache = {}
     current: set = remove_precycle(g, p, start, finish)
     while True:
+        # _logger.debug(current)
         min_done = None
         max_done = None
         for node, done in current:
@@ -57,7 +70,7 @@ def find_path(g, p, start: set, finish: set):
                 to_update.append((node, done))
         for node, done in to_update:
             current.remove((node, done))
-            nxt, dist = find_next(node, done, g, p, finish, graph_cache)
+            nxt, dist = find_next(node, done, max_done - done, g, p, finish, graph_cache)
             current.add((nxt, done + dist))
 
 
@@ -98,4 +111,5 @@ def main():
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
+    # logging.basicConfig(level=logging.INFO)
     main()
