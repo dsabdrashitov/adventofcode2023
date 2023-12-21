@@ -2,11 +2,11 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-NAME = "sample.in"
-# NAME = "input.txt"
+# NAME = "sample.in"
+NAME = "input.txt"
 
-STEPS = 5
-# STEPS = 26501365
+# STEPS = 1000
+STEPS = 26501365
 
 START = 'S'
 ROCK = '#'
@@ -41,7 +41,7 @@ def do_precalc(fence):
     log = []
     cur = set()
     cur.add((0, 0))
-    while len(log) < 3 or log[-1] != log[-3]:
+    while len(log) < 4 or log[-1] != log[-3] or log[-2] != log[-4]:
         result.append(inside(cur, n, m))
         log.append(len(cur))
         nxt = set()
@@ -54,7 +54,7 @@ def do_precalc(fence):
                     continue
                 nxt.add(p1)
         cur = nxt
-    return result[:-1]
+    return result[:-2]
 
 
 def count(fence, steps):
