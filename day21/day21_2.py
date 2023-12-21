@@ -1,8 +1,8 @@
 # NAME = "sample.in"
 NAME = "input.txt"
 
-STEPS = 262
-# STEPS = 26501365
+# STEPS = 262
+STEPS = 26501365
 
 START = 'S'
 ROCK = '#'
@@ -15,14 +15,29 @@ def add(a, b):
     return a[0] + b[0], a[1] + b[1]
 
 
+def inside(cur, n, m):
+    result = 0
+    for p in cur:
+        if p[0] < n - 1 and p[1] < m - 1:
+            result = result + 1
+    return result
+
+
 def do_precalc(fence):
+    n = len(fence)
+    m = len(fence[0])
+    fence_copy = []
+    for i in range(n):
+        fence_copy.append(fence[i] + [False])
+    fence_copy.append([False] * (m + 1))
+    fence = fence_copy
     n = len(fence)
     m = len(fence[0])
     result = []
     cur = set()
     cur.add((0, 0))
     while len(result) < 3 or result[-1] != result[-3]:
-        result.append(len(cur))
+        result.append(inside(cur, n, m))
         nxt = set()
         for p0 in cur:
             for d in D:
