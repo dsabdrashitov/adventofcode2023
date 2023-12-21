@@ -52,22 +52,21 @@ def find_next(node, done, min_dist, g, p, finish, graph_cache):
 def find_path(g, p, start: set, finish: set):
     graph_cache = {}
     current: set = remove_precycle(g, p, start, finish)
+    counter = 0
     while True:
-        # _logger.debug(current)
-        min_done = None
+        counter = counter + 1
         max_done = None
         for node, done in current:
-            if min_done is None or min_done >= done:
-                min_done = done
             if max_done is None or max_done <= done:
                 max_done = done
-        if min_done == max_done:
-            return min_done
-        logging.debug(f"{min_done}, {max_done}")
+        if counter % 1000000 == 0:
+            logging.info(f"counter = {counter}, max_done = {max_done}")
         to_update = []
         for node, done in current:
-            if done == min_done:
+            if done < max_done:
                 to_update.append((node, done))
+        if len(to_update) == 0:
+            return max_done
         for node, done in to_update:
             current.remove((node, done))
             nxt, dist = find_next(node, done, max_done - done, g, p, finish, graph_cache)
