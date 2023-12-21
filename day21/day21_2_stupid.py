@@ -78,8 +78,10 @@ def remap(fence, start, d1, d2):
 def solve(f):
     inp = []
     for line in f:
-        inp.append(line.strip())
-
+        inp.append(line.strip() * 5)
+    inpcopy = list(inp)
+    for i in range(4):
+        inp.extend(inpcopy)
     n = len(inp)
     m = len(inp[0])
     fence = []
