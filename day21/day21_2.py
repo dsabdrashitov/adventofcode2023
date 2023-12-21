@@ -1,8 +1,12 @@
-# NAME = "sample.in"
-NAME = "input.txt"
+import logging
 
-# STEPS = 262
-STEPS = 26501365
+_logger = logging.getLogger(__name__)
+
+NAME = "sample.in"
+# NAME = "input.txt"
+
+STEPS = 5
+# STEPS = 26501365
 
 START = 'S'
 ROCK = '#'
@@ -34,10 +38,12 @@ def do_precalc(fence):
     n = len(fence)
     m = len(fence[0])
     result = []
+    log = []
     cur = set()
     cur.add((0, 0))
-    while len(result) < 3 or result[-1] != result[-3]:
+    while len(log) < 3 or log[-1] != log[-3]:
         result.append(inside(cur, n, m))
+        log.append(len(cur))
         nxt = set()
         for p0 in cur:
             for d in D:
@@ -52,9 +58,9 @@ def do_precalc(fence):
 
 
 def count(fence, steps):
-    # print(fence)
+    _logger.debug(fence)
     precalc = do_precalc(fence)
-    # print(f"precalc = {precalc}")
+    _logger.debug(f"precalc = {precalc}")
     full = [0] * 2
     full[(len(precalc) - 1) % 2] = precalc[-1]
     full[(len(precalc) - 2) % 2] = precalc[-2]
@@ -64,7 +70,7 @@ def count(fence, steps):
     for i in range((steps // n) + 1):
         j = (steps - i * n) // m
         while j >= 0:
-            # print(i, j)
+            _logger.debug(i, j)
             remsteps = steps - i * n - j * m
             if remsteps >= len(precalc):
                 answer = answer + ((j + 1 + 1) // 2) * full[0]
@@ -72,7 +78,7 @@ def count(fence, steps):
                 break
             answer = answer + precalc[remsteps]
             j = j - 1
-    # print(answer)
+    _logger.debug(answer)
     return answer
 
 
