@@ -1,0 +1,59 @@
+bh {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'ps', 'bh', 'hd', 'cp', 'bs', 'qg', 'sj', 'broadcaster'}
+bk {'lg', 'mc', 'nb', 'mf', 'vc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'broadcaster'}
+bm {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+broadcaster {'broadcaster'}
+bs {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'bh', 'hd', 'cp', 'bs', 'qg', 'ps', 'broadcaster'}
+bt {'dx', 'kf', 'dv', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'jv', 'vs', 'broadcaster'}
+bv {'dx', 'kf', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'vs', 'jv', 'dv', 'broadcaster'}
+cp {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'bh', 'hd', 'cp', 'bs', 'qg', 'ps', 'broadcaster'}
+cx {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'bh', 'hd', 'cp', 'bs', 'qg', 'ps', 'broadcaster'}
+dh {'nh', 'mc', 'nb', 'sc', 'lp', 'vc', 'lf', 'tn', 'th', 'kk', 'qg', 'hd', 'cp', 'vs', 'cx', 'xm', 'qb', 'mf', 'nv', 'qm', 'lj', 'tr', 'tt', 'gk', 'bk', 'nc', 'sj', 'jv', 'dx', 'lg', 'sg', 'xc', 'bv', 'sm', 'nn', 'fc', 'ml', 'gv', 'hb', 'bh', 'bm', 'bs', 'dr', 'ps', 'broadcaster', 'tz', 'tb', 'dh', 'gp', 'kf', 'mz', 'jx', 'bt', 'ln', 'xv', 'ng', 'pd', 'dv'}
+dr {'lg', 'mc', 'nb', 'mf', 'vc', 'nc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'dr', 'tb', 'broadcaster'}
+dv {'dx', 'kf', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'vs', 'jv', 'dv', 'broadcaster'}
+dx {'dx', 'kf', 'jx', 'xc', 'bt', 'qb', 'bv', 'qm', 'sm', 'ml', 'vs', 'broadcaster', 'dv', 'jv'}
+fc {'mz', 'gp', 'xv', 'nv', 'fc', 'lp', 'tt', 'nn', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+gk {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'bh', 'hd', 'cp', 'bs', 'qg', 'ps', 'broadcaster'}
+gp {'mz', 'gp', 'xv', 'nv', 'fc', 'tt', 'lp', 'nn', 'ng', 'lf', 'tn', 'pd', 'bm', 'broadcaster'}
+gv {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'gv', 'hb', 'kk', 'bk', 'broadcaster', 'nc', 'tb', 'tz'}
+hb {'lg', 'mc', 'nb', 'mf', 'vc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'broadcaster'}
+hd {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'ps', 'bh', 'hd', 'cp', 'bs', 'qg', 'sj', 'broadcaster'}
+jv {'dx', 'kf', 'dv', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'broadcaster', 'vs', 'jv'}
+jx {'dx', 'kf', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'vs', 'jv', 'dv', 'broadcaster'}
+kf {'dx', 'kf', 'dv', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'jv', 'vs', 'broadcaster'}
+kk {'lg', 'mc', 'nb', 'mf', 'vc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'broadcaster'}
+lf {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+lg {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'gv', 'hb', 'kk', 'bk', 'broadcaster', 'nc', 'tb', 'tz'}
+lj {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'ps', 'bh', 'hd', 'cp', 'bs', 'qg', 'sj', 'broadcaster'}
+ln {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'ps', 'bh', 'hd', 'cp', 'bs', 'qg', 'sj', 'broadcaster'}
+lp {'mz', 'gp', 'xv', 'nv', 'fc', 'tt', 'lp', 'nn', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+mc {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'gv', 'hb', 'kk', 'bk', 'broadcaster', 'nc', 'tb', 'tz'}
+mf {'lg', 'mc', 'nb', 'mf', 'vc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'broadcaster'}
+ml {'dx', 'kf', 'dv', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'jv', 'vs', 'broadcaster'}
+mz {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+nb {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'broadcaster', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'tz'}
+nc {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'broadcaster', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'tz'}
+ng {'mz', 'gp', 'xv', 'nv', 'fc', 'lp', 'tt', 'nn', 'ng', 'lf', 'tn', 'pd', 'bm', 'broadcaster'}
+nh {'dx', 'kf', 'dv', 'nh', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'jv', 'vs', 'broadcaster'}
+nn {'mz', 'gp', 'xv', 'nv', 'nn', 'tt', 'lp', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+nv {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+pd {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+ps {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'ps', 'bh', 'hd', 'cp', 'bs', 'qg', 'sj', 'broadcaster'}
+qb {'dx', 'kf', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'vs', 'jv', 'dv', 'broadcaster'}
+qg {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'bh', 'qg', 'hd', 'cp', 'bs', 'ps', 'broadcaster'}
+qm {'dx', 'kf', 'dv', 'jx', 'bt', 'xc', 'qb', 'bv', 'qm', 'sm', 'ml', 'jv', 'vs', 'broadcaster'}
+rx {'nh', 'mc', 'nb', 'sc', 'lp', 'vc', 'lf', 'tn', 'th', 'kk', 'qg', 'hd', 'cp', 'vs', 'cx', 'xm', 'qb', 'mf', 'nv', 'qm', 'lj', 'tr', 'tt', 'gk', 'bk', 'nc', 'sj', 'jv', 'dx', 'lg', 'sg', 'xc', 'rx', 'bv', 'sm', 'nn', 'fc', 'ml', 'gv', 'hb', 'bh', 'bm', 'bs', 'dr', 'ps', 'broadcaster', 'tz', 'tb', 'dh', 'gp', 'kf', 'mz', 'jx', 'bt', 'ln', 'xv', 'ng', 'pd', 'dv'}
+sc {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'ps', 'bh', 'hd', 'cp', 'bs', 'qg', 'sj', 'broadcaster'}
+sg {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'bh', 'hd', 'cp', 'bs', 'qg', 'ps', 'broadcaster'}
+sj {'cx', 'sg', 'sc', 'ln', 'gk', 'lj', 'bh', 'ps', 'qg', 'hd', 'cp', 'bs', 'sj', 'broadcaster'}
+sm {'dx', 'kf', 'jx', 'bt', 'qb', 'xc', 'bv', 'qm', 'sm', 'ml', 'vs', 'jv', 'dv', 'broadcaster'}
+tb {'lg', 'mc', 'nb', 'mf', 'vc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'broadcaster'}
+th {'lg', 'mc', 'nb', 'mf', 'vc', 'tz', 'th', 'gv', 'hb', 'kk', 'bk', 'nc', 'tb', 'broadcaster'}
+tn {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+tr {'cx', 'sg', 'sc', 'ln', 'sj', 'gk', 'lj', 'tr', 'bh', 'hd', 'cp', 'bs', 'qg', 'ps', 'broadcaster'}
+tt {'mz', 'gp', 'xv', 'nv', 'fc', 'tt', 'lp', 'nn', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+tz {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'gv', 'hb', 'kk', 'bk', 'broadcaster', 'nc', 'tb', 'tz'}
+vc {'lg', 'mc', 'nb', 'mf', 'vc', 'th', 'gv', 'hb', 'kk', 'bk', 'broadcaster', 'nc', 'tb', 'tz'}
+vs {'dx', 'kf', 'dv', 'jx', 'xc', 'bt', 'qb', 'bv', 'qm', 'sm', 'ml', 'broadcaster', 'vs', 'jv'}
+xc {'dx', 'kf', 'dv', 'jx', 'xc', 'bt', 'qb', 'bv', 'qm', 'sm', 'ml', 'broadcaster', 'vs', 'jv'}
+xm {'mz', 'gp', 'xm', 'xv', 'nv', 'nn', 'tt', 'lp', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
+xv {'mz', 'gp', 'xv', 'nv', 'nn', 'lp', 'tt', 'fc', 'lf', 'tn', 'ng', 'pd', 'bm', 'broadcaster'}
