@@ -41,20 +41,20 @@ def hit_all(lines):
     def f(p):
         x0, y0, z0, u0, v0, w0 = p
         return (
-            y1 * vx1 - y1 * vx0 + vy1 * x0 - vy1 * x1 - y0 * vx1 + y0 * vx0 - vy0 * x0 + vy0 * x1,
-            y2 * vx2 - y2 * vx0 + vy2 * x0 - vy2 * x2 - y0 * vx2 + y0 * vx0 - vy0 * x0 + vy0 * x2,
-            y3 * vx3 - y3 * vx0 + vy3 * x0 - vy3 * x3 - y0 * vx3 + y0 * vx0 - vy0 * x0 + vy0 * x3,
-            z1 * vx1 - z1 * vx0 + vz1 * x0 - vz1 * x1 - z0 * vx1 + z0 * vx0 - vz0 * x0 + vz0 * x1,
-            z2 * vx2 - z2 * vx0 + vz2 * x0 - vz2 * x2 - z0 * vx2 + z0 * vx0 - vz0 * x0 + vz0 * x2,
-            z3 * vx3 - z3 * vx0 + vz3 * x0 - vz3 * x3 - z0 * vx3 + z0 * vx0 - vz0 * x0 + vz0 * x3,
+            x0 * (v1 - v4) + y0 * (u4 - u1) + u0 * (y4 - y1) + v0 * (x1 - x4) + y1 * u1 - v1 * x1 - y4 * u4 + v4 * x4,
+            x0 * (v2 - v4) + y0 * (u4 - u2) + u0 * (y4 - y2) + v0 * (x2 - x4) + y2 * u2 - v2 * x2 - y4 * u4 + v4 * x4,
+            x0 * (v3 - v4) + y0 * (u4 - u3) + u0 * (y4 - y3) + v0 * (x3 - x4) + y3 * u3 - v3 * x3 - y4 * u4 + v4 * x4,
+            x0 * (w1 - w4) + z0 * (u4 - u1) + u0 * (z4 - z1) + w0 * (x1 - x4) + z1 * u1 - w1 * x1 - z4 * u4 + w4 * x4,
+            x0 * (w2 - w4) + z0 * (u4 - u2) + u0 * (z4 - z2) + w0 * (x2 - x4) + z2 * u2 - w2 * x2 - z4 * u4 + w4 * x4,
+            x0 * (w3 - w4) + z0 * (u4 - u3) + u0 * (z4 - z3) + w0 * (x3 - x4) + z3 * u3 - w3 * x3 - z4 * u4 + w4 * x4,
         )
 
-    x0, y0, z0, vx0, vy0, vz0 = 0, 0, 0, 0, 0, 0
+    x0, y0, z0, u0, v0, w0 = 0, 0, 0, 0, 0, 0
     for i in range(100):
-        x0, y0, z0, vx0, vy0, vz0 = fsolve(f, (x0, y0, z0, vx0, vy0, vz0))
-    print(x0, y0, z0, "@", vx0, vy0, vz0)
-    print(f((x0, y0, z0, vx0, vy0, vz0)))
-    answer = (x0, y0, z0), (vx0, vy0, vz0)
+        x0, y0, z0, u0, v0, w0 = fsolve(f, (x0, y0, z0, u0, v0, w0))
+    print(x0, y0, z0, "@", u0, v0, w0)
+    print(f((x0, y0, z0, u0, v0, w0)))
+    answer = (x0, y0, z0), (u0, v0, w0)
     return answer
 
 
