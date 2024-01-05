@@ -2,8 +2,8 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
-# NAME = "sample.in"
-NAME = "input.txt"
+NAME = "sample.in"
+# NAME = "input.txt"
 
 CYCLES = 1000000000
 
@@ -123,7 +123,8 @@ def solve(f):
                 field[i][j] = count
                 count = count + 1
     pos = [collect_pos(field, count)]
-    period = None
+    period = [0] * count
+    periods = 0
     done = 0
     while done < CYCLES:
         two_power = 2 ** (len(pos) - 1)
@@ -131,19 +132,28 @@ def solve(f):
             do_cycle(field, done == 0)
             done = done + 1
             cur_pos = collect_pos(field, count)
-            good = True
             for j in range(count):
-                if pos[-1][j] != cur_pos[j]:
-                    good = False
-                    break
-            if good:
-                period = i + 1
+                if period[j] > 0:
+                    if period[j] == i + 1:
+                        if pos[-1][j] != cur_pos[j]:
+                            period[j] = 0
+                            periods = periods - 1
+                        else:
+                            continue
+                    else:
+                        continue
+                if pos[-1][j] == cur_pos[j]:
+                    period[j] = i + 1
+                    periods = periods + 1
+            if periods == count:
                 break
-        if period is not None:
+        if periods == count:
             break
         pos.append(collect_pos(field, count))
     _logger.info(period)
-    done = done + ((CYCLES - done) // period) * period
+    skip = lcm(period)
+    _logger.info(skip)
+    done = done + ((CYCLES - done) // skip) * skip
     while done < CYCLES:
         do_cycle(field)
         done = done + 1
@@ -162,5 +172,5 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.DEBUG)
     main()
