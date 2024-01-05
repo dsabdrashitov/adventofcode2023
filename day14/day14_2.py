@@ -96,21 +96,6 @@ def do_cycle(field, do_debug = False):
             _logger.debug(''.join([ROUND if isinstance(obj, int) else obj for obj in x]))
 
 
-def gcd(a, b):
-    while a > 0:
-        tmp = b % a
-        b = a
-        a = tmp
-    return b
-
-
-def lcm(a):
-    result = a[0]
-    for x in a:
-        result = result * x // gcd(result, x)
-    return result
-
-
 def solve(f):
     field = []
     for line in f:
@@ -125,43 +110,33 @@ def solve(f):
     pos = [collect_pos(field, count)]
     period = [0] * count
     periods = 0
+    wait_done = 0
     done = 0
     while done < CYCLES:
-        two_power = 2 ** (len(pos) - 1)
-        for i in range(min(two_power, CYCLES - done)):
-            do_cycle(field, done == 0)
-            done = done + 1
-            cur_pos = collect_pos(field, count)
-            for j in range(count):
-                if period[j] > 0:
-                    if period[j] == i + 1:
-                        if pos[-1][j] != cur_pos[j]:
-                            period[j] = 0
-                            periods = periods - 1
-                        else:
-                            continue
-                    else:
-                        continue
-                if pos[-1][j] == cur_pos[j]:
-                    period[j] = i + 1
-                    periods = periods + 1
-            if periods == count:
-                break
-        if periods == count:
-            break
-        pos.append(collect_pos(field, count))
-    _logger.info(period)
-    skip = lcm(period)
-    _logger.info(skip)
-    done = done + ((CYCLES - done) // skip) * skip
-    while done < CYCLES:
-        do_cycle(field)
+        do_cycle(field, done == 0)
         done = done + 1
+        pos.append(collect_pos(field, count))
+        for j in range(count):
+            if period[j] > 0:
+                if pos[-1][j] != pos[-1 - period[j]][j]:
+                    period[j] = 0
+                    periods = periods - 1
+                else:
+                    continue
+            for k in range(1, done):
+                if pos[-1][j] == pos[-1 - k][j]:
+                    period[j] = k
+                    wait_done = max(wait_done, done + period[j])
+                    periods = periods + 1
+                    break
+        if periods == count and done > wait_done:
+            break
+    _logger.info(period)
     answer = 0
-    for i in range(len(field)):
-        for j in range(len(field[i])):
-            if isinstance(field[i][j], int):
-                answer = answer + len(field) - i
+    for i in range(count):
+        rem = (CYCLES - done) % period[i]
+        p = pos[-1 - period[i] + rem][i]
+        answer = answer + len(field) - p[0]
     return answer
 
 
